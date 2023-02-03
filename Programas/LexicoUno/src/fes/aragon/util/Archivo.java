@@ -3,22 +3,30 @@ package fes.aragon.util;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 public class Archivo {
 
-	public static void main(String[] args) {
+	public static ArrayList<String> getData(String archive) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
+		ArrayList<String> palabras = new ArrayList<String>();
 		try {
-			archivo = new File(System.getProperty("user.dir") + "\\Data\\Data1");
+			archivo = new File(System.getProperty("user.dir") + "\\Data\\" + archive);
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 			String linea;
-			while ((linea = br.readLine()) != null)
-				System.out.println(linea);
+			while ((linea = br.readLine()) != null) {
+				String[] palabrasLinea = linea.split(" ");
+				for (String palabra : palabrasLinea) {
+					palabras.add(palabra);
+				}
+			}
+			return palabras;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		} finally {
 
 			try {
