@@ -9,13 +9,13 @@ import fes.aragon.util.Archivo;
 public class Contador {
 
 	public static void main(String[] args) {
-
 		// String cadena = JOptionPane.showInputDialog("Cadena a analizar");
 		ArrayList<String> datos = Archivo.getData("Data1");
 		for (String cadena : datos) {
 			int estado = 1;
 			System.out.println(cadena);
-			for (int i = 0; i < cadena.length(); i++) {
+			outer: for (int i = 0; i < cadena.length(); i++) {
+				System.out.println(estado);
 				char simbolo = cadena.charAt(i);
 				if (simbolo != 'a' && simbolo != 'b' && simbolo != 'c') {
 					System.out.println("La cadena tiene simbolos fuera del alfabeto");
@@ -48,7 +48,7 @@ public class Contador {
 					break;
 				}
 				default:
-					break;
+					break outer;
 				}
 			}
 			if (estado == 4) {
