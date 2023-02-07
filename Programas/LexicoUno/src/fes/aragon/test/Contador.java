@@ -1,8 +1,8 @@
 package fes.aragon.test;
 
 import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
+import java.util.Arrays;
+import java.util.List;
 
 import fes.aragon.util.Archivo;
 
@@ -11,13 +11,16 @@ public class Contador {
 	public static void main(String[] args) {
 		// String cadena = JOptionPane.showInputDialog("Cadena a analizar");
 		ArrayList<String> datos = Archivo.getData("Data1");
+		List<Character> alfabeto = new ArrayList<Character>();
+		Character[] alf = { 'a', 'b', 'c' };
+		alfabeto = Arrays.asList(alf);
 		for (String cadena : datos) {
 			int estado = 1;
 			System.out.println(cadena);
 			outer: for (int i = 0; i < cadena.length(); i++) {
-				System.out.println(estado);
+				// System.out.println(estado);
 				char simbolo = cadena.charAt(i);
-				if (simbolo != 'a' && simbolo != 'b' && simbolo != 'c') {
+				if (alfabeto.indexOf(simbolo) < 0) {
 					System.out.println("La cadena tiene simbolos fuera del alfabeto");
 					estado = 5;
 					break;
