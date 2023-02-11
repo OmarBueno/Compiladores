@@ -26,7 +26,7 @@ public class DController {
 
 	public static void main(String[] args) {
 		DController app = new DController();
-		System.out.println(app.evaluate("ccccajaa"));
+		System.out.println(app.evaluate("ccccaa"));
 	}
 
 }
