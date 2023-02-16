@@ -48,8 +48,6 @@ public class AFD {
 					System.out.println(estado);
 				}
 			}
-			System.out.println("------------");
-			System.out.println(transiciones.get(0)[0]);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -63,22 +61,23 @@ public class AFD {
 			}
 		}
 	}
-	
+
 	public boolean evaluar(String token) {
+		this.estado = "0";
 		if (token.charAt(token.length() - 1) != ':') {
 			this.estado = "0";
 		} else {
 			for (int i = 0; i < token.length(); i++) {
 				char sim = token.charAt(i);
 				String simbolo = String.valueOf(sim);
-				if (Utilerias.digito(sim)) {
+				/*if (Utilerias.digito(sim)) {
 					simbolo = "D";
 				} else if (Utilerias.letra(sim)) {
 					simbolo = "L";
-				}
+				}*/
 				for (int j = 0; j < this.alfabeto.length; j++) {
 					this.correcto = false;
-					if (this.alfabeto[j] == simbolo) {
+					if (this.alfabeto[j].equals(simbolo)) {
 						this.columna = j;
 						this.correcto = true;
 						break;
@@ -95,7 +94,7 @@ public class AFD {
 				this.estado = this.transiciones.get(Integer.parseInt(this.estado))[this.columna];
 			}
 		}
-		if (this.estado == "1") {
+		if (this.estado.equals("1")) {
 			System.out.println(token + " Aceptada");
 			return true;
 		} else {
