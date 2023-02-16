@@ -5,7 +5,7 @@ import fes.aragon.util.Utilerias;
 
 public class DigitoTabla {
 	private char[] columnas = { 'L', 'D', ':' };
-	private int[][] tablas = { { 2, 1, 0 }, { 1, 1, 0 }, { 2, 2, 1 } };
+	private int[][] tablas = { { 1, 2, 0 }, { 2, 1, 1 }, { 1, 2, 0 } };
 	private int estado = 0;
 	private int columna = 0;
 	private boolean correcto = false;
