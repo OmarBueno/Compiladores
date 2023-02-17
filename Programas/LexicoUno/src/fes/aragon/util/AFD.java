@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AFD {
-	// private List<Character> alfabeto;
 	private String[] alfabeto;
 	private List<String[]> transiciones = new ArrayList<String[]>();
-	private String[] transicion;
 	private String estado = "0";
 	private int columna = 0;
 	private boolean correcto = false;
@@ -88,9 +86,6 @@ public class AFD {
 					this.estado = "0";
 					break;
 				}
-				// System.out.println("Fila: " + this.estado + " Columna: " + this.columna +
-				// "Valor: "
-				// + this.tablas[this.estado][this.columna]);
 				this.estado = this.transiciones.get(Integer.parseInt(this.estado))[this.columna];
 			}
 		}
