@@ -13,6 +13,7 @@ TAREA = (011)*0*1*|" "
 %}
 %%
 {WHITE}         {/*NO HACER NADA */}
-"="             {return ASSIGN;}
-.               {return ERROR;}
 {TAREA}			{return TAREA;}
+"="             {return ASSIGN;}
+{D}				{return INT;}
+.               {return ERROR;}

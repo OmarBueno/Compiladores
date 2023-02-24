@@ -62,8 +62,9 @@ class Analizador2 {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\2\1\2\2\1\1\42\0\1\3\1\4\13\0"+
-    "\1\5\107\0\1\2\u01a2\0\2\2\326\0\u0100\2";
+    "\11\0\2\1\2\2\1\1\22\0\1\3\13\0\1\4"+
+    "\3\0\1\5\1\6\7\0\1\4\3\0\1\7\107\0"+
+    "\1\2\u01a2\0\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[1024];
@@ -90,7 +91,7 @@ class Analizador2 {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\1\3\2\2\1\4\5\1";
+    "\1\1\1\2\1\3\1\1\1\4\2\1\1\5\3\1";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[11];
@@ -118,8 +119,8 @@ class Analizador2 {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\6\0\6\0\14\0\22\0\6\0\30\0\36"+
-    "\0\22\0\44\0\14";
+    "\0\0\0\10\0\10\0\10\0\10\0\20\0\30\0\10"+
+    "\0\40\0\50\0\60";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[11];
@@ -145,12 +146,12 @@ class Analizador2 {
   private static final int [] ZZ_TRANS = zzUnpacktrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\0\1\4\1\5\1\6\11\0\1\7"+
-    "\1\10\5\0\1\11\4\0\1\7\1\11\5\0\1\12"+
-    "\4\0\1\13\1\11\1\0";
+    "\1\2\1\3\1\0\1\4\1\5\1\6\1\7\1\10"+
+    "\15\0\1\11\1\12\7\0\1\7\6\0\1\11\1\7"+
+    "\7\0\1\13\6\0\1\6\1\7\1\0";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[42];
+    int [] result = new int[56];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -193,7 +194,7 @@ class Analizador2 {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\2\11\2\1\1\11\5\1";
+    "\1\1\4\11\2\1\1\11\3\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[11];
@@ -636,22 +637,27 @@ class Analizador2 {
             { return TAREA;
             }
           // fall through
-          case 5: break;
+          case 6: break;
           case 2:
             { return ERROR;
             }
           // fall through
-          case 6: break;
+          case 7: break;
           case 3:
             { /*NO HACER NADA */
             }
           // fall through
-          case 7: break;
+          case 8: break;
           case 4:
+            { return INT;
+            }
+          // fall through
+          case 9: break;
+          case 5:
             { return ASSIGN;
             }
           // fall through
-          case 8: break;
+          case 10: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
