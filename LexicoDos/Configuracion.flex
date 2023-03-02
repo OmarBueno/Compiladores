@@ -3,9 +3,9 @@ import static fes.aragon.Tokens.*;
 %%
 %class Lexico
 %type Tokens
-L=[a-zA-Z]
-D=[0-9]
-WHITE=[\t\r\n]
+%{
+String string = "";
+%}
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
 WhiteSpace = {LineTerminator} | [ \t\f]
@@ -18,27 +18,34 @@ DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent = ( [^*] | \*+ [^/*] )*
 Identifier = [:jletter:] [:jletterdigit:]*
 DecIntegerLiteral = 0 | [1-9][0-9]*
-ENTRADA = (011)+
-ENTRADADOS = 0*1*
 %state STRING
-%{
-	public String lexema;
-%}
 %%
 /* keywords */
 <YYINITIAL> "abstract" { return ABSTRACT; }
 <YYINITIAL> "boolean" { return BOOLEAN; }
 <YYINITIAL> "break" { return BREAK; }
-
 <YYINITIAL> {
 /* identifiers */
-{Identifier} { return IDENTIFICADOR; }
+{Identifier} { return IDENTIFIER; }
 /* literals */
-{DecIntegerLiteral} { return IDENTIFICADORI; }
-{ENTRADA} {System.out.println("Correcto Salto"); yybegin(STRING);}
+{DecIntegerLiteral} { return INTEGER_LITERAL; }
+\" {yybegin(STRING); }
+/* operators */
+"=" { return EQ; }
+"==" { return EQEQ; }
+"+" { return PLUS; }
+/* comments */
+{Comment} { /* ignore */ }
+/* whitespace */
+{WhiteSpace} { /* ignore */ }
 }
 <STRING> {
-{ENTRADADOS} {System.out.println("Correcto"); yybegin(YYINITIAL);}
+\" { yybegin(YYINITIAL); return STRING_LITERAL;}
+[^\n\r\"\\]+  { string+=yytext(); }
+\\t { string+=("\t"); System.out.println("string "+string);}
+\\n { string+=("\n"); System.out.println("string "+string););}
+\\r { string+=("\r"); System.out.println("string "+string);}
+\\ { string+=("\\"); }
 }
-
-[^] {System.out.println("ERROR");}
+/* error fallback */
+[^] {System.out.println("string "+string); return ERROR; }

@@ -1,0 +1,28 @@
+ABSOLUTE ARRAY
+BEGIN
+CONST
+HOLA COMO ESTAS
+21321241
+G12ASDA
+DIV
+FOR
+END
+IF IN  	
+==
+=
++
+(*comentario1*)
+(*
+comentario1
+*)
+(**)
+{comentario3}
+{}
+{
+comentario 4
+}
+{
+
+}
+LABEL
+//ultimo comentario
