@@ -6,10 +6,9 @@ import java.util.List;
 
 import fes.aragon.util.Archivo;
 
-public class Contador {
+public class Programa1 {
 
 	public static void main(String[] args) {
-		// String cadena = JOptionPane.showInputDialog("Cadena a analizar");
 		ArrayList<String> datos = Archivo.getData("Data1");
 		List<Character> alfabeto = new ArrayList<Character>();
 		Character[] alf = { 'a', 'b', 'c' };

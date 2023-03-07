@@ -2,7 +2,7 @@ package fes.aragon.test;
 
 import fes.aragon.util.Archivo;
 
-public class CoontadorTabla {
+public class Programa2y3 {
 	private char[] columnas = { 'a', 'b', 'c', ':' };
 	private int[][] tablas = { { 1, 0, 0, 0 }, { 2, 1, 1, 0 }, { 3, 2, 2, 0 }, { 4, 3, 3, 1 }, { 4, 4, 4, 0 } };
 	private int estado = 0;
@@ -25,8 +25,6 @@ public class CoontadorTabla {
 				this.estado = 0;
 				break;
 			}
-			// System.out.println("Fila: " + app.estado + " Columna: " + app.columna + "
-			// Valor: " + app.tablas[app.estado][app.columna]);
 			this.estado = this.tablas[this.estado][this.columna];
 		}
 		if (this.estado == 1) {
@@ -41,7 +39,7 @@ public class CoontadorTabla {
 	public static void main(String[] args) {
 
 		for (String token : Archivo.getData("Data2")) {
-			CoontadorTabla app = new CoontadorTabla();
+			Programa2y3 app = new Programa2y3();
 			System.out.println(app.evaluar(token));
 		}
 	}
