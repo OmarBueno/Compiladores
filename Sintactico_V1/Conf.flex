@@ -21,15 +21,16 @@ public boolean getHayToken(){
 	/*Codigo que se ejecuta al terminar el analisis*/
 	this.hayToken=false;
 %eof}
+saltoLinea= \n
+retorno = \r
 Espacio= " "
 PuntoComa=";"
 IGUAL= "="
 MAS= "+"
 MENOS= "-"
-saltoLinea= \n|\r
 //expresiones
 ENTERO	= [0-9]+
-ID      = [A-Za-zñÑ][_0-9A-Za-zñÑ]*
+ID      = [A-Za-z][_0-9A-Za-z]*
 
 %%
 {IGUAL} {
@@ -65,15 +66,18 @@ ID      = [A-Za-zñÑ][_0-9A-Za-zñÑ]*
 	return tok;
 }
 {saltoLinea} {
-	//Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
-	//this.hayToken=true;
-	//return tok;
+	Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
+	this.hayToken=true;
+	return tok;
+}
+{retorno} {
+
 }
 {Espacio} {
 	
 }
 . {
-        String errLex = "Error léxico : '"+yytext()+"' en la línea: "
+        String errLex = "Error lexico : '"+yytext()+"' en la linea: "
 		+(yyline+1)+" y columna: "+(yycolumn+1);
         System.out.println(errLex);
 	this.hayToken=false;

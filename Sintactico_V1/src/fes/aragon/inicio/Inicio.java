@@ -28,8 +28,11 @@ public class Inicio {
             buf = new BufferedReader(
                     new FileReader(System.getProperty("user.dir")
                             + "/archivo.txt"));
+            //se pasa archivo a analizar
             ap.analizador = new Lexico(buf);
+            //verifica si es el final del archivo
             ap.siguienteToken();
+            
             ap.sentencia();
 
         } catch (IOException e) {
