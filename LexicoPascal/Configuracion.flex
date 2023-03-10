@@ -42,6 +42,33 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 <YYINITIAL> "VIRTUAL" 		{ return VIRTUAL; }
 <YYINITIAL> "WITH" 			{ return WITH; }
 <YYINITIAL> "AND" 			{ return AND; }
+<YYINITIAL> "ASM"           { return ASM;}
+<YYINITIAL> "CASE"          { return CASE;}
+<YYINITIAL> "CONSTRUCTOR"   { return CONSTRUCTOR;}
+<YYINITIAL> "EXTERNAL"      { return EXTERNAL;}
+<YYINITIAL> "DO"            { return DO;}
+<YYINITIAL> "ELSE"          { return ELSE;}
+<YYINITIAL> "FILE"          { return FILE;}
+<YYINITIAL> "FORWARD"       { return FORWARD;}
+<YYINITIAL> "GOTO"          { return GOTO;}
+<YYINITIAL> "IMPLEMENTATION"{ return IMPLEMENTATION;}
+<YYINITIAL> "INLINE"        { return INLINE;}
+<YYINITIAL> "INTERRUPT"     { return INTERRUPT;}
+<YYINITIAL> "MOD"           { return MOD;}
+<YYINITIAL> "NOT"           { return NOT;}
+<YYINITIAL> "OF"            { return OF;}
+<YYINITIAL> "PACKED"        { return PACKED;}
+<YYINITIAL> "PROCEDURE"     { return PROCEDURE;}
+<YYINITIAL> "RECORD"        { return RECORD;}
+<YYINITIAL> "SET"           { return SET;}
+<YYINITIAL> "SHR"           { return SHR;}
+<YYINITIAL> "THEN"          { return THEN;}
+<YYINITIAL> "TYPE"          { return TYPE;}
+<YYINITIAL> "UNTIL"         { return UNTIL;}
+<YYINITIAL> "VAR"           { return VAR;}
+<YYINITIAL> "WHILE"         { return WHILE;}
+<YYINITIAL> "XOR"           { return XOR;}
+
 
 <YYINITIAL> {
 /* identifiers */
