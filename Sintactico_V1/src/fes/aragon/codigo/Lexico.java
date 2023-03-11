@@ -32,12 +32,12 @@ public class Lexico {
   private static final char [] ZZ_CMAP = {
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  2,  2,  3,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
-     3,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  4,  0,  5,  0,  0, 
-     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  0,  7,  0,  8,  0,  0, 
-     0,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9, 
-     9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  0,  0,  0,  0, 10, 
-     0,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9, 
-     9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  9,  0,  0,  0,  0,  0, 
+     4,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  5,  0,  6,  0,  0, 
+     7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  0,  8,  0,  9,  0,  0, 
+     0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0,  0,  0,  0, 11, 
+     0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
@@ -54,11 +54,11 @@ public class Lexico {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
+    "\1\0\1\1\1\2\2\3\1\4\1\5\1\6\1\7"+
     "\1\10\1\11";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[10];
+    int [] result = new int[11];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -83,11 +83,11 @@ public class Lexico {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\13\0\13\0\13\0\13\0\13\0\26\0\13"+
-    "\0\13\0\41";
+    "\0\0\0\14\0\14\0\30\0\14\0\14\0\14\0\44"+
+    "\0\14\0\14\0\60";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[10];
+    int [] result = new int[11];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -111,11 +111,11 @@ public class Lexico {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\0\1\4\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\2\21\0\1\7\12\0\1\12\2\0"+
-    "\2\12";
+    "\1\11\1\12\1\13\1\2\15\0\1\3\21\0\1\10"+
+    "\13\0\1\13\2\0\2\13";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[44];
+    int [] result = new int[60];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -158,10 +158,10 @@ public class Lexico {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\5\11\1\1\2\11\1\1";
+    "\1\0\2\11\1\1\3\11\1\1\2\11\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[10];
+    int [] result = new int[11];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;

@@ -21,7 +21,7 @@ public boolean getHayToken(){
 	/*Codigo que se ejecuta al terminar el analisis*/
 	this.hayToken=false;
 %eof}
-saltoLinea= \n
+saltoLinea= \n|\r\n
 retorno = \r
 Espacio= " "
 PuntoComa=";"
@@ -76,6 +76,7 @@ ID      = [A-Za-z][_0-9A-Za-z]*
 {Espacio} {
 	
 }
+
 . {
         String errLex = "Error lexico : '"+yytext()+"' en la linea: "
 		+(yyline+1)+" y columna: "+(yycolumn+1);
