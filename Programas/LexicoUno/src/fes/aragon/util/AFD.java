@@ -40,12 +40,12 @@ public class AFD {
 			for (String letra : alfabeto) {
 				System.out.println(letra);
 			}
-			System.out.println("Transiciones: ");
+			/*System.out.println("Transiciones: ");
 			for (String[] transicion : transiciones) {
 				for (String estado : transicion) {
 					System.out.println(estado);
 				}
-			}
+			}*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -97,4 +97,6 @@ public class AFD {
 			return false;
 		}
 	}
+	
+	
 }

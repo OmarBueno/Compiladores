@@ -1,6 +1,0 @@
-num = 2 - 3;
-num num num
-num2 = num;
-a = ab
-x = 3-1;
-num3=4+4
