@@ -38,63 +38,44 @@ public class Inicio2 {
 	}
 
 	private void primer() {
-		do {
-			segundo();
-			if (tokens.getLexema() == Sym.OR) {
+		while (tokens.getLexema() != Sym.EOF) {
+			boolean parentesis = false;
+			if(tokens.getLexema()==Sym.NOT||tokens.getLexema()==Sym.PIZ) {
+				if(tokens.getLexema()==Sym.PIZ) {
+					parentesis = true;
+				}
 				siguienteToken();
-				segundo();
+				if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE){
+					siguienteToken();
+					if(parentesis && tokens.getLexema()!=Sym.PDE) {
+						errorSintactico();
+					}
+				}
+				else {
+					errorSintactico();
+				}
 			}
-			if (tokens.getLexema() != Sym.PUNTOCOMA) {
-				errorSintactico();
+			else if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE) {
+				siguienteToken();
+				if(tokens.getLexema()==Sym.AND||tokens.getLexema()==Sym.OR) {
+					siguienteToken();
+					if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE) {
+						siguienteToken();
+					}
+					if(tokens.getLexema()==Sym.PUNTOCOMA) {
+						siguienteToken();
+					}
+					else {
+						errorSintactico();
+					}
+				}
+				else {
+					errorSintactico();
+				}
 			}
 			else {
-				if (!this.error) {
-	                System.out.println("Invalida linea= " + (tokens.getLinea() + 1));
-	                this.error = true;
-	            } else {
-	                System.out.println("Valida  linea= " + (tokens.getLinea() + 1));
-	            }
-			}
-		} while (tokens.getLexema() != Sym.EOF);
-	}
-
-	private void segundo() {
-		do {
-			tercero();
-			if (tokens.getLexema() == Sym.AND||tokens.getLexema() == Sym.OR) {
-				siguienteToken();
-				segundo();
-			}
-			if (tokens.getLexema() != Sym.PUNTOCOMA) {
 				errorSintactico();
 			}
-			else {
-				if (!this.error) {
-	                System.out.println("Invalida linea= " + (tokens.getLinea() + 1));
-	                this.error = true;
-	            } else {
-	                System.out.println("Valida  linea= " + (tokens.getLinea() + 1));
-	            }
-			}
-			siguienteToken();
-		} while (tokens.getLexema() != Sym.EOF);
-	}
-
-	private void tercero() {
-		if (tokens.getLexema() == Sym.NOT || tokens.getLexema() == Sym.TRUE || tokens.getLexema() == Sym.FALSE
-				|| tokens.getLexema() == Sym.PDE || tokens.getLexema() == Sym.PIZ) {
-			if (tokens.getLexema() == Sym.NOT) {
-				siguienteToken();
-				tercero();
-			} else if (tokens.getLexema() == Sym.PIZ) {
-				siguienteToken();
-				primer();
-			} else {
-				siguienteToken();
-			}
-		} else {
-			siguienteToken();
-			errorSintactico();
 		}
 	}
 
