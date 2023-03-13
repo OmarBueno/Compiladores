@@ -40,42 +40,50 @@ public class Inicio2 {
 	private void primer() {
 		while (tokens.getLexema() != Sym.EOF) {
 			boolean parentesis = false;
-			if(tokens.getLexema()==Sym.NOT||tokens.getLexema()==Sym.PIZ) {
-				if(tokens.getLexema()==Sym.PIZ) {
+			boolean terminal = false;
+			if (tokens.getLexema() == Sym.NOT || tokens.getLexema() == Sym.PIZ) {
+				if (tokens.getLexema() == Sym.PIZ) {
 					parentesis = true;
 				}
 				siguienteToken();
-				if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE){
-					siguienteToken();
-					if(parentesis && tokens.getLexema()!=Sym.PDE) {
-						errorSintactico();
+				if (tokens.getLexema() == Sym.TRUE || tokens.getLexema() == Sym.FALSE) {
+					if(parentesis) {
+						siguienteToken();
+						if (parentesis && tokens.getLexema() == Sym.PDE) {
+							siguienteToken();
+						}
+						else {
+							errorSintactico();
+						}
+						
 					}
-				}
-				else {
+				} else {
 					errorSintactico();
 				}
 			}
-			else if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE) {
+			if (tokens.getLexema() == Sym.TRUE || tokens.getLexema() == Sym.FALSE) {
 				siguienteToken();
-				if(tokens.getLexema()==Sym.AND||tokens.getLexema()==Sym.OR) {
+				if (tokens.getLexema() == Sym.AND || tokens.getLexema() == Sym.OR) {
 					siguienteToken();
-					if(tokens.getLexema()==Sym.TRUE||tokens.getLexema()==Sym.FALSE) {
+					if (tokens.getLexema() == Sym.TRUE || tokens.getLexema() == Sym.FALSE) {
 						siguienteToken();
 					}
-					if(tokens.getLexema()==Sym.PUNTOCOMA) {
-						siguienteToken();
-					}
-					else {
+					if (tokens.getLexema() != Sym.PUNTOCOMA) {
 						errorSintactico();
 					}
-				}
-				else {
+				} else {
 					errorSintactico();
 				}
-			}
-			else {
+			} else {
 				errorSintactico();
 			}
+			if (!this.error) {
+				System.out.println("Invalida linea= " + (tokens.getLinea() + 1));
+				this.error = true;
+			} else {
+				System.out.println("Valida  linea= " + (tokens.getLinea() + 1));
+			}
+			siguienteToken();
 		}
 	}
 

@@ -45,6 +45,9 @@ public class Inicio {
 				segundo();
 			}
 			if (tokens.getLexema() != Sym.PUNTOCOMA) {
+				if(tokens.getLexema() == Sym.EOF) {
+					break;
+				}
 				errorSintactico();
 			}
 			else {
@@ -53,7 +56,7 @@ public class Inicio {
 	                this.error = true;
 	            } else {
 	                System.out.println("Valida  linea= " + (tokens.getLinea() + 1));
-	            }
+	            }	
 			}
 		} while (tokens.getLexema() != Sym.EOF);
 	}
@@ -64,6 +67,9 @@ public class Inicio {
 			if (tokens.getLexema() == Sym.AND||tokens.getLexema() == Sym.OR) {
 				siguienteToken();
 				segundo();
+				if(tokens.getLexema() == Sym.EOF) {
+					break;
+				}
 			}
 			if (tokens.getLexema() != Sym.PUNTOCOMA) {
 				errorSintactico();
@@ -77,6 +83,7 @@ public class Inicio {
 	            }
 			}
 			siguienteToken();
+			
 		} while (tokens.getLexema() != Sym.EOF);
 	}
 
@@ -86,9 +93,11 @@ public class Inicio {
 			if (tokens.getLexema() == Sym.NOT) {
 				siguienteToken();
 				tercero();
-			} else if (tokens.getLexema() == Sym.PIZ) {
+			} else if (tokens.getLexema() == Sym.PIZ||tokens.getLexema() == Sym.PDE) {
 				siguienteToken();
-				primer();
+				tercero();
+				siguienteToken();
+
 			} else {
 				siguienteToken();
 			}
