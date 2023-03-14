@@ -74,15 +74,16 @@ public class Inicio {
 			if (tokens.getLexema() != Sym.PUNTOCOMA) {
 				errorSintactico();
 			}
-			else {
 				if (!this.error) {
 	                System.out.println("Invalida linea= " + (tokens.getLinea() + 1));
 	                this.error = true;
 	            } else {
 	                System.out.println("Valida  linea= " + (tokens.getLinea() + 1));
 	            }
-			}
 			siguienteToken();
+			if (tokens.getLexema() == Sym.SALTOLINEA) {
+				siguienteToken();
+			} 
 			
 		} while (tokens.getLexema() != Sym.EOF);
 	}
@@ -113,6 +114,9 @@ public class Inicio {
 		do {
 			System.out.println(tokens.toString());
 			if (tokens.getLexema() != Sym.PUNTOCOMA) {
+				if (tokens.getLexema() == Sym.SALTOLINEA||tokens.getLexema()==Sym.EOF) {
+					break;
+				}
 				siguienteToken();
 			}
 		} while (tokens.getLexema() != Sym.PUNTOCOMA && tokens.getLexema() != Sym.EOF);

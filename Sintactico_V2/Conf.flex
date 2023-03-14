@@ -79,9 +79,9 @@ PDE = ")"
 	return tok;
 }
 {saltoLinea} {
-	//Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
-	//this.hayToken=true;
-	//return tok;
+	Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
+	this.hayToken=true;
+	return tok;
 }
 {retorno} {
 

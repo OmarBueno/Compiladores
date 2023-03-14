@@ -685,9 +685,9 @@ public boolean getHayToken(){
           // fall through
           case 12: break;
           case 2:
-            { //Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
-	//this.hayToken=true;
-	//return tok;
+            { Tokens tok=new Tokens(yytext(),Sym.SALTOLINEA,yyline,yycolumn);
+	this.hayToken=true;
+	return tok;
             }
           // fall through
           case 13: break;
